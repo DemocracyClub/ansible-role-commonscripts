@@ -1,9 +1,17 @@
 ---
 
-- name: Install output on error
+- name: Install output-on-error
   template:
     src: files/scripts/output-on-error
-    dest: /usr/local/bin/output-on-error
+    dest: /usr/bin/output-on-error
+    mode: 0755
+  become_user: root
+  become: true
+
+- name: Install manage-py-command
+  template:
+    src: files/scripts/manage-py-command
+    dest: /usr/bin/manage-py-command
     mode: 0755
   become_user: root
   become: true
