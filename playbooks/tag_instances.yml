@@ -11,7 +11,7 @@
       ec2_instance_facts:
         region: "{{ region }}"
         filters:
-         "tag:Name": "ee-asg"
+         "tag:Name": "{{ asg_id }}"
          "tag:Env": "{{ aws_env }}"
          instance-state-name: running
       register: ec2_metadata
@@ -43,7 +43,7 @@
       ec2_instance_facts:
         region: "{{ region }}"
         filters:
-         "tag:Name": "ee-asg"
+         "tag:Name": "{{ asg_id }}"
          "tag:Env": "{{ aws_env }}"
          "tag:controller": "True"
          instance-state-name: running
